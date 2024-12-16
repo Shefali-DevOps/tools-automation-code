@@ -1,5 +1,5 @@
 - name: Setup Tools with Ansible
-  hosts: all
+  hosts: localhost
   become: yes
   roles:
     - "{{ tool_name }}"
