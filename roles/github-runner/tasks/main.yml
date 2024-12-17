@@ -15,3 +15,12 @@
       dest: "/actions-runner"
       remote_src: yes
 
+- name: Download github cli repos
+  ansible.builtin.get_url:
+      src: https://cli.github.com/packages/rpm/gh-cli.repo
+      dest: /etc/yum.repos.d/gh-cli.repo
+
+- name: Install github cli
+  ansible.builtin.dnf:
+      name: gh-cli
+      state: latest
