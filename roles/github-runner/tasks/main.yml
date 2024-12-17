@@ -30,3 +30,11 @@
   ansible.builtin.dnf:
       name: gh-cli
       state: latest
+
+- name: Grab Token
+  ansible.builtin.shell:  gh api   --method POST -H "Accept: application/vnd.github+json"   -H "X-GitHub-Api-Version: 2022-11-28"   /orgs/Shefali-DevOps/actions/runners/registration-token | jq .token
+  register: out
+
+- name: Print Token
+  ansible.builtin.debug:
+    msg: "{{ out }}"
