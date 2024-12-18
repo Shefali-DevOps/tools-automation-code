@@ -44,9 +44,8 @@
     name: libicu
     state: latest
 
-- name: Configure github runner
-  ansible.builtin.shell: echo ./config.sh --url https://github.com/Shefali-DevOps --token {{ token.stdout }} --runnergroup Default --name ec2 --labels rhel --work _work --replace
+- name: Configure Github Runner
+  ansible.builtin.shell: ./config.sh --url https://github.com/shefali-DevOps --token {{ token.stdout }} --runnergroup Default --name ec2 --labels rhel --work _work --replace
   args:
-    warn: false
     chdir: /actions-runner
-    become_user: grunner
+  become_user: grunner
