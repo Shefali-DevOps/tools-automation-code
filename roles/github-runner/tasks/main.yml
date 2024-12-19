@@ -61,4 +61,3 @@
   ansible.builtin.shell: ./svc.sh install grunner ;  ./svc.sh start
   args:
     chdir: /actions-runner
-  when: runner_count.stdout == "0"
