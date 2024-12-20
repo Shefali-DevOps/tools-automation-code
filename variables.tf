@@ -6,7 +6,7 @@ variable "tools"{
       policy_name = ["AdministratorAccess"]
     }
 
-    vault-instance = {
+    vault= {
       instance_type = "t2.micro"
       policy_name = []
     }
