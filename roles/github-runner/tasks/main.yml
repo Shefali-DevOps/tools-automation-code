@@ -51,7 +51,7 @@
 
 - name: Print runner count
   ansible.builtin.debug:
-    msg: "{{runner_count}}"
+    msg: "{{ runner_count }}"
 
 - name: Get the runner status
   ansible.builtin.shell: |
@@ -61,7 +61,7 @@
 
 - name: Print runner status
   ansible.builtin.debug:
-    msg: "{{runner_status }}"
+    msg: "{{ runner_status }}"
 
 - name: Configure Github Runner
   ansible.builtin.shell: ./config.sh --url https://github.com/shefali-DevOps --token {{ token.stdout }} --runnergroup Default --name ec2 --labels rhel --work _work --replace
