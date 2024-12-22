@@ -49,9 +49,9 @@
   register: runner_count
   become_user: ec2-user
 
-- name: Print runner status
+- name: Print runner count
   ansible.builtin.debug:
-    msg: "{{runner_status }}"
+    msg: "{{runner_count}}"
 
 - name: Get the runner status
   ansible.builtin.shell: |
