@@ -49,15 +49,19 @@
   register: runner_count
   become_user: ec2-user
 
+- name: Print runner status
+  ansible.builtin.debug:
+    msg: "{{runner_status }}"
+
 - name: Get the runner status
   ansible.builtin.shell: |
     gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/shefali-DevOps/actions/runners | jq '.runners[] | select (.name == "ec2") | .status' |xargs
   register: runner_status
   become_user: ec2-user
 
-- name: Print runner count and status
+- name: Print runner status
   ansible.builtin.debug:
-    msg: "{{ runner_count }} and {{runner_status }}"
+    msg: "{{runner_status }}"
 
 - name: Configure Github Runner
   ansible.builtin.shell: ./config.sh --url https://github.com/shefali-DevOps --token {{ token.stdout }} --runnergroup Default --name ec2 --labels rhel --work _work --replace
