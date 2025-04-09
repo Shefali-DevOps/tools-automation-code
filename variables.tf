@@ -18,7 +18,7 @@ variable "tools"{
     }
 
     minikube= {
-      instance_type = "t2.micro"
+      instance_type = "t3.medium"
       policy_name = []
       ports= {
         kube = 8443
