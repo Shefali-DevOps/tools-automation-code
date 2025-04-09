@@ -8,13 +8,11 @@
 - name: Install Minikube
   ansible.builtin.shell: dnf install https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm docker -y
 
-- name: Install Docker
-  ansible.builtin.dnf:
-    name: docker
-    state: installed
-
 - name: Download Kubectl
   ansible.builtin.get_url:
     url: https://dl.k8s.io/release/v1.30.3/bin/linux/amd64/kubectl
     dest: /bin/kubectl
     mode: '0755'
+
+- name: Start Minikube
+  ansible.builtin.shell: minikube start --force
